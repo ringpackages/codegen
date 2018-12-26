@@ -1,6 +1,6 @@
 aPackageInfo = [
-	:name = "The codegen Package",
-	:description = "Our codegen package using the Ring programming language",
+	:name = "The CodeGen Package",
+	:description = "Our CodeGen package using the Ring programming language",
 	:folder = "codegen",
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
