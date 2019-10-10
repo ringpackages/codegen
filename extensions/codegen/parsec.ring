@@ -486,7 +486,7 @@ Func GenFuncPrototype aList
 		ok
 	next
 	for cFunc in $aStructFuncs
-			cCode += C_TABS_1 + 'ring_vm_funcregister("' + cFunc + '",' +
+			cCode += C_TABS_1 + 'ring_vm_funcregister("' + lower(cFunc) + '",' +
 				  "ring_"+cFunc + ");" + nl
 	next
 	cCode += "}" + nl
@@ -889,7 +889,7 @@ Func GenStruct	aFunc
 				C_TABS_1 + "}" + nl +
 				C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 				'"'+cStruct  +'");' + nl +			
-				C_TABS_1 + "pMyPointer->"+x+" = ("+cPointerType+") RING_API_GETCPOINTER(2,"+'"'+cPointerType +'"'+");" + nl +
+				C_TABS_1 + "pMyPointer->"+x+" = ("+cPointerType+") RING_API_GETCPOINTER(2,"+'"'+cPointerTypeRet+'"'+");" + nl +
 				"}" + nl + nl			
 		ok
 	next
