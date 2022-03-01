@@ -17,7 +17,7 @@
 	we can put comments between <comment> and </comment>
 	The record no. 4 is used for defining functions to create/destroy
 	struct. used for <struct> and </struct>
-	We can put function start when we generate function for strucutres
+	We can put function start when we generate function for structures
 	between <funcstart> and </funcstart>
 	We can execute ring code during code generation by using
 	<runcode> and </runcode>
@@ -376,6 +376,7 @@ Func GenCode aList
 	cCode = ""
 	cCode += GenDLLStart()
 	# Generate Classes List at first
+	? "Prepare the lists..."
 	nMax = len(aList)
 	for t = 1 to nMax 
 		aFunc = aList[t]
@@ -388,7 +389,7 @@ Func GenCode aList
 			ok
 		ok
 	next		
-	
+	? "Generate the code..."
 	for t = 1 to nMax 
 		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION
@@ -722,7 +723,7 @@ Func GenTabs x
 	return copy(char(9),x)
 
 Func ParaCount aList
-	# get list of paramters, return parameters count
+	# get list of parameters, return parameters count
 	if len(aList) > 1
 		return len(aList)
 	else
@@ -1373,7 +1374,7 @@ Func GenRingCode aList
 				ok
 			ok
 			# Define the method
-			if aFunc[C_FUNC_NAME] = "new" loop ok
+			if aFunc[C_FUNC_NAME] = "new" or aFunc[C_FUNC_NAME] = "delete" loop ok
 			cMethodName = aFunc[C_FUNC_NAME]
 			cMethodName = GenRingCodeNewMethodName(cClassName,cMethodName)
 			cMethodName = SubStr(cMethodName,"@","_")
